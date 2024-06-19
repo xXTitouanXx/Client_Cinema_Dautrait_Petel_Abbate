@@ -8,12 +8,12 @@ import {MovieInformationComponent} from "./movies/movie-information/movie-inform
 import {MoviesComponent} from "./movies/movies.component";
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'search', component: SearchResultComponent },
-  { path: 'movies', component: MoviesComponent},
-  { path: 'movie/:id', component: MovieInformationComponent },
-  { path: 'actors', component: ActorsComponent },
-  { path: 'actor/:id', component: ActorInformationComponent },
+  { path: '', component: HomeComponent, title: 'CineHub'},
+  { path: 'login', component: LoginComponent, title: 'Login'},
+  { path: 'search', component: SearchResultComponent, title: 'Search' },
+  { path: 'movies', component: MoviesComponent, title: 'Movies'},
+  { path: 'movie/:id', component: MovieInformationComponent, title: 'Movie Information'},
+  { path: 'actors', component: ActorsComponent, title: 'Actors'},
+  { path: 'actor/:id', component: ActorInformationComponent, title: 'Actor Information'},
   { path: '**', redirectTo: '' }  // Redirect to home for any unknown routes
 ];
