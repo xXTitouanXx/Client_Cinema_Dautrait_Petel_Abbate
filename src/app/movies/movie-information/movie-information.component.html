@@ -1,1 +1,5 @@
-<p>movie-information works!</p>
+<div *ngIf="movie" class="container mx-auto mt-8">
+  <h1 class="text-3xl font-bold">{{ movie.title }}</h1>
+  <p>{{ movie.overview }}</p>
+  <p class="font-bold">Revenue: {{ movie.revenue }}</p>
+</div>
