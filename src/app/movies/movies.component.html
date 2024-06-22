@@ -1,5 +1,16 @@
+<div [formGroup]="filterGenreForm">
+  <label for="genre">Select Genre:</label>
+  <select id="genre" formControlName="selectedGenreId">
+    <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
+  </select>
+</div>
+<div [formGroup]="filterDirectorForm">
+  <label for="director">Select Director:</label>
+  <select id="director" formControlName="selectedDirectorId">
+    <option *ngFor="let director of directors" [value]="director.id">{{ director.name }}</option>
+  </select>
+</div>
 <div class="grid grid-cols-3 gap-8 content-center">
-
   <ng-container *ngFor="let movie of movies">
     <a [routerLink]="'/movie/' + movie.id" class="flex justify-center w-full">
       <div class="bg-white shadow-lg border-gray-100 border sm:rounded-3xl p-8 flex space-x-8 w-full">

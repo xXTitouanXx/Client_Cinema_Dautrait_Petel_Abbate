@@ -19,4 +19,21 @@ export class MovieService {
   getMovieById(id: number): Observable<Movie> {
     return this.http.get<Movie>(`${this.apiUrl}/getMovie/${id}`);
   }
+
+  getMoviesByGenre(id: number): Observable<Movie[]> {
+    return this.http.get<Movie[]>(`${this.apiUrl}/moviesbygenre/${id}`);
+  }
+
+  getGenres(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/genres`);
+  }
+
+  getMoviesByDirector(id: number): Observable<Movie[]> {
+    return this.http.get<Movie[]>(`${this.apiUrl}/moviesbydirector/${id}`);
+  }
+
+  getDirectors(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/directors`);
+  }
+
 }

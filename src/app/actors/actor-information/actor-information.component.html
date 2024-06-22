@@ -1,1 +1,10 @@
-<p>actor-information works!</p>
+<div *ngIf="actor" class="container mx-auto mt-8">
+    <h1 class="text-3xl font-bold">{{ actor.name }}</h1>
+    <img class="rounded-3xl shadow-lg object-cover w-full h-full" [src]="'http://image.tmdb.org/t/p/w500' + actor.profilePath" alt="{{ actor.name }} Poster">
+    <h2>Characters Played</h2>
+    <ul>
+    <li *ngFor="let character of characters">
+        {{ character.name }} in {{ character.movie.title }}
+    </li>
+    </ul>
+</div>
