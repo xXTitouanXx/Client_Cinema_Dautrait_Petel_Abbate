@@ -40,5 +40,4 @@ export class AuthService {
   isAuthenticated() {
     return !!localStorage.getItem('authToken');
   }
-
 }
