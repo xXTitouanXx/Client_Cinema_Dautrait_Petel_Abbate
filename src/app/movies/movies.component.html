@@ -1,15 +1,19 @@
-<div [formGroup]="filterGenreForm">
-  <label for="genre">Select Genre:</label>
-  <select id="genre" formControlName="selectedGenreId">
-    <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
-  </select>
+<div class="max-w-md mx-auto p-2">
+  <div [formGroup]="filterGenreForm" class="mb-2">
+    <label for="genre" class="block text-gray-600 font-medium mb-1 text-sm">Select Genre:</label>
+    <select id="genre" formControlName="selectedGenreId" class="form-select mt-1 block w-full border-gray-300 rounded-sm shadow-sm focus:border-indigo-400 focus:ring-indigo-400 text-sm">
+      <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
+    </select>
+  </div>
+
+  <div [formGroup]="filterDirectorForm" class="mb-2">
+    <label for="director" class="block text-gray-600 font-medium mb-1 text-sm">Select Director:</label>
+    <select id="director" formControlName="selectedDirectorId" class="form-select mt-1 block w-full border-gray-300 rounded-sm shadow-sm focus:border-indigo-400 focus:ring-indigo-400 text-sm">
+      <option *ngFor="let director of directors" [value]="director.id">{{ director.name }}</option>
+    </select>
+  </div>
 </div>
-<div [formGroup]="filterDirectorForm">
-  <label for="director">Select Director:</label>
-  <select id="director" formControlName="selectedDirectorId">
-    <option *ngFor="let director of directors" [value]="director.id">{{ director.name }}</option>
-  </select>
-</div>
+
 <div class="grid grid-cols-3 gap-8 content-center">
   <ng-container *ngFor="let movie of movies">
     <a [routerLink]="'/movie/' + movie.id" class="flex justify-center w-full">
@@ -21,14 +25,10 @@
           <div>
             <h2 class="text-2xl font-bold mb-2">{{ movie.title }}</h2>
             <p class="text-gray-600 text-sm">{{ movie.releaseDate | date }}</p>
-            <p class="text-gray-700">{{ movie.overview }}</p>
-          </div>
-          <div class="mt-4 text-lg font-bold text-gray-800">
-            Revenue: {{ movie.revenue }}
+            <p class="text-gray-700 text-sm overflow-hidden max-h-40">{{ movie.overview }}</p>
           </div>
         </div>
       </div>
     </a>
   </ng-container>
-
 </div>

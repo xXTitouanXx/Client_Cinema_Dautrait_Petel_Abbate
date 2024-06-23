@@ -1,3 +1,6 @@
+import {Director} from "./director";
+import {Character} from "./Character";
+import {Genre} from "./genre";
 export interface Movie {
   runtime: number;
   id: number;
@@ -5,11 +8,14 @@ export interface Movie {
   popularity: number;
   budget?: number;
   revenue?: number;
-  //director wip
+  director: Director;
   backdropPath: string;
   overview: string;
   originalTitle: string;
   releaseDate: Date;
   posterPath: string;
   originalLanguage: string;
+
+  characters: Character[];
+  genres: Genre[];
 }

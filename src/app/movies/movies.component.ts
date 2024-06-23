@@ -37,11 +37,11 @@ export class MoviesComponent implements OnInit {
         console.error('Error fetching movies', error);
       }
     );
-    
+
     this.movieService.getGenres().subscribe(data => {
       this.genres = data;
     });
-    
+
     this.movieService.getDirectors().subscribe(data => {
       this.directors = data;
     });
@@ -52,12 +52,13 @@ export class MoviesComponent implements OnInit {
         this.filterDirectorForm.setValue({selectedDirectorId: null})
       });
     });
-    
+
     this.filterDirectorForm.get('selectedDirectorId')?.valueChanges.subscribe(directorId => {
       this.movieService.getMoviesByDirector(directorId).subscribe(data => {
         this.movies = data;
         this.filterGenreForm.setValue({selectedGenreId: null})
       });
     });
+
   }
 }
