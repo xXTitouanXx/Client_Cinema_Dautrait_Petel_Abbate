@@ -10,3 +10,21 @@ export interface Character {
   actor: Actor;
   movie: Movie;
 }
+
+export interface CharacterCreateDTO {
+  name: string;
+  profilePath: string;
+  actorId: number;
+  movieId: number;
+  gender: number;
+  order: number;
+}
+
+export interface CharacterUpdateDTO {
+  id: number;
+  name: string;
+  profilePath: string;
+  actorId: number;
+  gender: number;
+  order: number;
+}

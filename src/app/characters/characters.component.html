@@ -1,0 +1,51 @@
+<div class="container mt-4">
+    <form [formGroup]="characterForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Nom du personnage</label>
+        <input type="text" class="form-control" id="name" formControlName="name" required>
+      </div>
+      <div class="form-group">
+        <label for="actorId">ID de l'acteur</label>
+        <input type="number" class="form-control" id="actorId" formControlName="actorId" required>
+      </div>
+      <div class="form-group">
+        <label for="movieId">ID du film</label>
+        <input type="number" class="form-control" id="movieId" formControlName="movieId" required>
+      </div>
+      <div class="form-group">
+        <label for="profilePath">Chemin du profil</label>
+        <input type="text" class="form-control" id="profilePath" formControlName="profilePath">
+      </div>
+      <div class="form-group">
+        <label for="gender">Genre</label>
+        <select class="form-control" id="gender" formControlName="gender">
+          <option [ngValue]="1">Femme</option>
+          <option [ngValue]="2">Homme</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="order">Ordre</label>
+        <input type="number" class="form-control" id="order" formControlName="order">
+      </div>
+      
+      <!-- Champ masqué pour l'ID du personnage -->
+      <input type="hidden" id="characterId" formControlName="id">
+  
+      <div class="btn-toolbar">
+        <button type="submit" class="btn btn-primary mr-2">Créer</button>
+        <button type="button" class="btn btn-success mr-2" (click)="onUpdate()">Mettre à jour</button>
+        <button type="button" class="btn btn-danger" (click)="onDelete()">Supprimer</button>
+      </div>
+    </form>
+  
+    <!-- Liste des personnages -->
+    <div class="mt-4">
+      <h4>Liste des personnages</h4>
+      <ul class="list-group">
+        <li *ngFor="let character of characters" class="list-group-item">
+          <span>{{ character.name }} ({{ character.gender === 1 ? "Femme" : "Homme" }}) - Acteur: {{ character.actor.name }} | {{ character.actor.id }} - Film: {{ character.movie.title }} | {{ character.movie.id}} - Ordre: {{ character.order }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
