@@ -3,6 +3,7 @@ import {Movie} from "../../models/movie";
 import {ActivatedRoute, RouterLink} from "@angular/router";
 import {MovieService} from "../../services/movie.service";
 import {CommonModule} from "@angular/common";
+import { Character } from '../../models/Character';
 
 @Component({
   selector: 'app-movie-information',
@@ -13,6 +14,7 @@ import {CommonModule} from "@angular/common";
 })
 export class MovieInformationComponent implements OnInit {
   movie: Movie | undefined;
+  characters: Character[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -22,12 +24,13 @@ export class MovieInformationComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      const id = Number(params.get('id'));
-      if (id) {
-        this.movieService.getMovieById(id).subscribe(movie => {
-          this.movie = movie;
-        });
-      }
+      const id = this.route.snapshot.params['id'];
+      this.movieService.getMovieById(id).subscribe(movie => {
+        this.movie = movie;
+      });
+      this.movieService.getCharactersByMovieId(id).subscribe((characters) => {
+        this.characters = characters;
+      });
     });
   }
 }

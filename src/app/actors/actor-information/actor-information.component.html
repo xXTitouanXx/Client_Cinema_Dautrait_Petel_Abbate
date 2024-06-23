@@ -24,7 +24,7 @@
         <div class="mt-4">
           <h2 class="text-xl font-semibold">Biographie</h2>
           <p class="mt-2 text-gray-700">
-            {{ actor?.biography}}
+            {{ actor?.biography }}
           </p>
         </div>
       </div>
@@ -32,8 +32,10 @@
         <h2>Personnages joués</h2>
         <ul>
           <li *ngFor="let character of characters">
-            {{ character.name }} in {{ character.movie.title }}
-            <p><img [src]="'http://image.tmdb.org/t/p/w500' + character.movie.posterPath" width="20%" height="20%"></p>
+            <a [routerLink]="'/movie/' + character.movie.id">
+              {{ character.name }} in {{ character.movie.title }}
+              <p><img [src]="'http://image.tmdb.org/t/p/w500' + character.movie.posterPath" width="20%" height="20%"></p>
+            </a>
           </li>
         </ul>
 

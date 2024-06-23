@@ -7,6 +7,6 @@ export interface Character {
   gender: number;
   order: number;
   profilePath: string;
-  actor_id: Actor['id'];
-  movie_id: Movie['id'];
+  actor: Actor;
+  movie: Movie;
 }
