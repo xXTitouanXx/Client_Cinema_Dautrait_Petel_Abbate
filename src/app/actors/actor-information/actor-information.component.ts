@@ -23,13 +23,11 @@ export class ActorInformationComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      const id = Number(params.get('id'));
-      if (id) {
-        this.actorService.getActeurById(id).subscribe(actor => {
-          this.actor = actor;
-        });
-        this.loadCharacters(id);
-      }
+      const id = this.route.snapshot.params['id'];
+      this.actorService.getActeurById(id).subscribe(actor => {
+        this.actor = actor;
+      });
+      this.loadCharacters(id);
     });
   }
 

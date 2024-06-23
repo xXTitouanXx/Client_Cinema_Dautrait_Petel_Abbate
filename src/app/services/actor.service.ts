@@ -20,7 +20,7 @@ export class ActorService {
     return this.http.get<Actor>(`${this.apiUrl}/getActeurs/${id}`);
   }
 
-  getCharactersByActor(actorId: number): Observable<any> {
-    return this.http.get<Actor>(`${this.apiUrl}/getActeurs/${actorId}/characters`);
+  getCharactersByActor(id: number): Observable<any> {
+    return this.http.get<Actor>(`${this.apiUrl}/getActeurs/${id}/characters`);
   }
 }
